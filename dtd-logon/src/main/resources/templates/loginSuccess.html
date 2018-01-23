@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>login</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<table>
+		<tr>
+            <td>
+            	<span th:text="${user.firstName}"/>
+            </td>
+			<td> | </td>            
+			<td>
+            	<a href="/logout">Logout</a>
+            </td>                                                           
+		</tr>
+	</table>	
+</body>
+</html>
+

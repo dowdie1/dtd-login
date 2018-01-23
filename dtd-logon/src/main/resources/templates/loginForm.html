@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Login</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+    <!-- Note as part of the framework the action on this form needs to be /connect/facebook -->
+    <!-- Notmally this expects a html template of connectfacebook in the templates folder this -->
+    <!-- however is overwriting this functionality-->      
+    <!-- likewise a template facebookconnected is expected  -->
+	<form action="/connect/facebook" method="POST" style="display: inline">
+		<input type="hidden" name="scope" value="public_profile,email" />
+		<button type="submit" class="btn btn-primary">
+		Facebook <span class="fa fa-facebook"></span>
+		</button>
+	</form>
+	<br/>
+	<form action="#" th:action="@{/login}" th:object="${user}" method="post">
+		<table>
+		
+			<tr>
+              <td>Username : </td>
+              <td><input type="text" th:field="*{firstName}" /></td>
+              <td th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">Email Error</td>
+            </tr>	
+			<tr>
+              <td>Password : </td>
+              <td><input type="text" th:field="*{password}" /></td>
+              <td th:if="${#fields.hasErrors('password')}" th:errors="*{password}">password Error</td>
+            </tr>
+        	<tr>
+        		<td><input type="submit" value="Login" /></td>
+        	</tr>
+			<tr>
+        	    <td><a href="/login">Forgotten Password ?</a></td>
+        	</tr>
+        </table>
+    </form>
+</body>
+</html>
